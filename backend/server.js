@@ -90,6 +90,10 @@ app.use(cors({
   credentials: true
 }));
 
+app.get("/",(req, res)=>{
+  res.send("hii")
+})
+
 app.get("/api/health", (req, res) => {
   res.json({ ok: true, time: new Date().toISOString() });
 });
