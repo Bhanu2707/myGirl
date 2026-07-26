@@ -84,7 +84,8 @@ const allowedOrigins = (process.env.CORS_ORIGIN || "")
 app.use(cors({
   origin: [
     "http://localhost:5173",        // local dev
-    "https://my-girl-q5j7ulfxs-bhanus-projects-63161851.vercel.app/"     // your vercel URL
+    "https://my-girl-q5j7ulfxs-bhanus-projects-63161851.vercel.app/" ,    // your vercel URL
+    "https://my-girl-black.vercel.app/"
   ],
   credentials: true
 }));
