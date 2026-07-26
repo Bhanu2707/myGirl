@@ -1,0 +1,105 @@
+# =====================================================================
+# BACKEND (backend/) — Node.js + Express + Mongoose
+# =====================================================================
+
+# Dependencies — always reinstalled via package.json, never committed
+backend/node_modules/
+
+# Environment / secrets — SMTP creds, MONGODB_URI, etc. Never commit real
+# values; only .env.example (which has placeholders) should be tracked.
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Logs
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/logs/
+backend/*.log
+
+# Runtime/process manager artifacts (e.g. if using pm2 on a VPS)
+backend/pids/
+backend/*.pid
+backend/*.seed
+backend/*.pid.lock
+
+# Test coverage output
+backend/coverage/
+backend/.nyc_output/
+
+# Any legacy local data files, if ever reintroduced (storage is Mongo now,
+# but this guards against a stray local file during debugging)
+backend/*.sqlite
+backend/*.db
+backend/jobs.json
+
+
+# =====================================================================
+# FRONTEND (frontend/) — Vite + React
+# =====================================================================
+
+# Dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/dist-ssr/
+frontend/build/
+
+# Environment / secrets — VITE_API_BASE_URL etc.
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Vite cache
+frontend/.vite/
+frontend/node_modules/.vite/
+
+# Logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Test coverage output
+frontend/coverage/
+
+# Local editor/type-checking artifacts
+frontend/*.tsbuildinfo
+
+
+# =====================================================================
+# SHARED — OS, editor, and tooling files (applies anywhere in the repo)
+# =====================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Package manager lockfile noise (keep ONE lockfile type per project instead
+# of committing all three) — uncomment whichever you're NOT using
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Env files at the repo root, if any are ever added outside backend/frontend
+.env
+.env.*
+!.env.example
