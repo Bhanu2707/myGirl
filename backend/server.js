@@ -81,7 +81,13 @@ const allowedOrigins = (process.env.CORS_ORIGIN || "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
-app.use(cors(allowedOrigins.length ? { origin: allowedOrigins } : {}));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",        // local dev
+    "https://my-girl-q5j7ulfxs-bhanus-projects-63161851.vercel.app/"     // your vercel URL
+  ],
+  credentials: true
+}));
 
 app.get("/api/health", (req, res) => {
   res.json({ ok: true, time: new Date().toISOString() });
