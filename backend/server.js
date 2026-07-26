@@ -81,7 +81,18 @@ const allowedOrigins = (process.env.CORS_ORIGIN || "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
-app.use(cors(allowedOrigins.length ? { origin: allowedOrigins } : {}));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://my-girl-q5j7ulfxs-bhanus-projects-63161851.vercel.app",  // ✅ No /
+    "https://my-girl-black.vercel.app"  // ✅ No /
+  ],
+  credentials: true
+}));
+
+app.get("/",(req, res)=>{
+  res.send("hii")
+})
 
 app.get("/api/health", (req, res) => {
   res.json({ ok: true, time: new Date().toISOString() });
@@ -305,8 +316,8 @@ app.get("/api/track-visitor", async (req, res) => {
 // ---------------------------------------------------------------------
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Backend listening on port http://localhost:${PORT}`);
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on port ${PORT}`);
     });
   })
   .catch((err) => {

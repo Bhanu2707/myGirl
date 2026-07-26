@@ -3,7 +3,7 @@ import { burstParticles } from '../hooks/useParticles';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const DEFAULT_TO = 'prakashbhanu9550@gmail.com';
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
 
 function nowLocalDatetimeValue() {
   const d = new Date();

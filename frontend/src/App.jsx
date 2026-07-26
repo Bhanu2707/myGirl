@@ -16,6 +16,7 @@ import BackToTop from './components/BackToTop';
 
 function Loader({ hidden }) {
 
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
 
 // This hook runs AUTOMATICALLY once when the page loads
   useEffect(() => {
@@ -23,7 +24,7 @@ function Loader({ hidden }) {
     const trackUser = async () => {
       try {
         // Call your Node.js server route
-        const response = await fetch('http://localhost:4000/api/track-visitor');
+        const response = await fetch(`${API_URL}/api/track-visitor`);
       } catch{
         console.log("hii");
       }
