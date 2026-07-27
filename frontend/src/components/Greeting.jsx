@@ -4,7 +4,7 @@ import { logClick } from '../lib/analytics';
 
 export default function Greeting({ onOpen }) {
   function handleClick() {
-    burstParticles(['♡'], window.innerWidth / 2, 10);
+    burstParticles(['♡'], window.innerWidth / 2, 50);
     logClick('open_heart');
     onOpen();
   }

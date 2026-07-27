@@ -26,7 +26,7 @@ body {
   color: var(--cream);
   font-family: 'Nunito', sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  cursor: url('/teddy_cursor.png') 16 16, auto;
 }
 
 ::selection {
@@ -62,12 +62,14 @@ body.locked {
 }
 
 section {
-  min-height: 100vh;
+  min-height: auto;
+  /* was 100vh */
+  padding: 10vh 6vw;
+  /* was 8vh — breathing room without dead space */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 8vh 6vw;
   flex-direction: column;
   text-align: center;
 }
@@ -119,7 +121,7 @@ section {
   border: none;
   padding: 1.05rem 2.6rem;
   border-radius: 100px;
-  cursor: none;
+  cursor: url('/teddy_cursor.png') 16 16, auto;
   box-shadow: 0 0 0 0 rgba(232, 163, 171, .55);
   transition: box-shadow .4s ease, transform .3s ease;
 }
@@ -159,6 +161,7 @@ section {
   z-index: 9999;
   transition: width .25s ease, height .25s ease, opacity .3s ease;
   mix-blend-mode: screen;
+  will-change: left, top;
 }
 
 #cursor-ring {
@@ -173,17 +176,18 @@ section {
   transform: translate(-50%, -50%);
   z-index: 9999;
   transition: transform .12s ease-out, opacity .3s ease;
+  will-change: left, top;
 }
 
 @media (hover: none) {
 
   #cursor-glow,
   #cursor-ring {
-    display: none;
+    display: none !important;
   }
 
   body {
-    cursor: auto;
+      cursor: url('/teddy_cursor.png') 16 16, auto;
   }
 }
 
@@ -222,6 +226,11 @@ section {
   animation: riseIn 1.4s .8s cubic-bezier(.19, 1, .22, 1) forwards;
 }
 
+#greeting,
+section:first-of-type {
+  min-height: 100vh;
+}
+
 @keyframes riseIn {
   from {
     opacity: 0;
@@ -242,11 +251,11 @@ section {
 /* ---------- timeline / chapter cards (shared by About You + Story) ---------- */
 .chapter {
   width: min(680px, 90vw);
-  margin: 0 auto 14vh auto;
+  margin: 0 auto 6vh auto;
 }
 
 .chapter:last-child {
-  margin-bottom: 4vh;
+  margin-bottom: 0vh;
 }
 
 .chapter-num {
@@ -291,7 +300,7 @@ section {
 }
 
 .letter-text {
-  font-family: 'Caveat', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.25rem, 2.4vw, 1.6rem);
   line-height: 1.7;
   color: var(--cream);
@@ -354,7 +363,7 @@ section {
   border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #fff6da, var(--champagne) 45%, #c98a3a 100%);
   box-shadow: 0 0 12px 3px rgba(238, 207, 160, .6);
-  cursor: none;
+    cursor: url('/teddy_cursor.png') 16 16, auto;
   border: none;
   animation: fruitFloat 3.6s ease-in-out infinite;
 }
@@ -407,7 +416,8 @@ section {
   aspect-ratio: 4/5;
   border-radius: 22px;
   overflow: hidden;
-  cursor: none;
+    cursor: url('/teddy_cursor.png') 16 16, auto;
+
   background: #11142c;
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .7);
   border: 1px solid var(--glass-border);
@@ -457,9 +467,10 @@ section {
 }
 
 /* ---------- story intro / gate ---------- */
-.story-intro{
+.story-intro {
   min-height: 10vh;
 }
+
 .story-intro .line1 {
   font-size: clamp(1.6rem, 4vw, 2.5rem);
   margin: 0;
@@ -567,7 +578,8 @@ section {
   color: var(--cream);
   font-family: 'Nunito', sans-serif;
   font-size: .95rem;
-  cursor: auto;
+    cursor: url('/teddy_cursor.png') 16 16, auto;
+
 }
 
 .message-form textarea {
@@ -589,6 +601,18 @@ section {
   font-style: italic;
   color: #e88;
   font-size: .95rem;
+}
+
+.glow-btn,
+.fruit,
+.image-frame,
+.back-to-top {
+  cursor: url('/teddy_cursor.png') 16 16, pointer;
+}
+
+.message-form input,
+.message-form textarea {
+  cursor: text;
 }
 
 /* ---------- micro interactions ---------- */
@@ -618,7 +642,8 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  cursor: none;
+    cursor: url('/teddy_cursor.png') 16 16, auto;
+
   opacity: 0;
   pointer-events: none;
   transition: opacity .4s ease, transform .3s ease;

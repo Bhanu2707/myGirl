@@ -21,7 +21,7 @@ export default function PrivateNote() {
         ))}
         {!open && (
           <button className="glow-btn" onClick={handleOpen}>
-            Open Pandi's Heart
+            Open your Pandi's Heart
           </button>
         )}
       </div>

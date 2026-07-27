@@ -19,7 +19,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // ---------------------------------------------------------------------
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 587,
+  port: Number(process.env.SMTP_PORT) || 465,
   secure: Number(process.env.SMTP_PORT) === 465,
   auth: {
     user: process.env.SMTP_USER,
@@ -84,8 +84,9 @@ const allowedOrigins = (process.env.CORS_ORIGIN || "")
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://my-girl-q5j7ulfxs-bhanus-projects-63161851.vercel.app",  // ✅ No /
-    "https://my-girl-black.vercel.app"  // ✅ No /
+    "http://localhost:5174",
+    "https://my-girl-q5j7ulfxs-bhanus-projects-63161851.vercel.app",  
+    "https://my-girl-black.vercel.app" 
   ],
   credentials: true
 }));

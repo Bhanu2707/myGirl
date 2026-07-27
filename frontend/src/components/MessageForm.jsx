@@ -3,6 +3,7 @@ import { burstParticles } from '../hooks/useParticles';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const DEFAULT_TO = 'prakashbhanu9550@gmail.com';
+const DEFAULT_FROM = 'prakash0h4@gmail.com';
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
 
 function nowLocalDatetimeValue() {
@@ -13,7 +14,7 @@ function nowLocalDatetimeValue() {
 
 export default function MessageForm() {
   const [ref, inView] = useScrollReveal(0.2);
-  const [fromEmail, setFromEmail] = useState('');
+  const [fromEmail, setFromEmail] = useState(DEFAULT_FROM);
   const [toEmail, setToEmail] = useState(DEFAULT_TO);
   const [message, setMessage] = useState('');
   const [sendAt, setSendAt] = useState('');
@@ -38,7 +39,7 @@ export default function MessageForm() {
       }
 
       // success: reset fields, restore default To address
-      setFromEmail('');
+      setFromEmail(DEFAULT_FROM);
       setToEmail(DEFAULT_TO);
       setMessage('');
       setSendAt('');
@@ -66,8 +67,8 @@ export default function MessageForm() {
           type="email"
           required
           value={fromEmail}
-          onChange={(e) => setFromEmail(e.target.value)}
-          placeholder="you@example.com"
+          // onChange={(e) => setFromEmail(e.target.value)}
+          // placeholder="you@example.com"
         />
 
         <label htmlFor="toEmail">To</label>
@@ -76,7 +77,7 @@ export default function MessageForm() {
           type="email"
           required
           value={toEmail}
-          onChange={(e) => setToEmail(e.target.value)}
+          // onChange={(e) => setToEmail(e.target.value)}
         />
 
         <label htmlFor="message">Message</label>
