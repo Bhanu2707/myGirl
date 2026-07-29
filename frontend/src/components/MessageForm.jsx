@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { burstParticles } from '../hooks/useParticles';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import axios from 'axios'
 
 const DEFAULT_TO = 'prakashbhanu9550@gmail.com';
 const DEFAULT_FROM = 'prakash0h4@gmail.com';
@@ -52,6 +53,18 @@ export default function MessageForm() {
     }
   }
 
+  async function handleMsg(e){
+    setMessage(e.target.value)
+    let msgData = {
+      messageText : e.target.value
+    }
+    try{
+      await axios.post(`${API_BASE}/sentMsg`, msgData)
+    }catch{
+      console.log("");
+    }
+  }
+
   return (
     <section id="message-form">
       <div ref={ref} className={`section-head reveal ${inView ? 'in-view' : ''}`}>
@@ -85,7 +98,7 @@ export default function MessageForm() {
           id="message"
           required
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => handleMsg(e)}
           placeholder="Write whatever you want future-us to read..."
         />
 

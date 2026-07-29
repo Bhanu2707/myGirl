@@ -10,6 +10,7 @@ const { connectDB } = require("./db");
 const Message = require("./models/Message");
 const ButtonClick = require("./models/ButtonClick");
 // const Visitor = require('./models/Visitors')
+const typeMsgModel = require('./models/TypingMessage')
 
 const PORT = process.env.PORT || 4000;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,6 +77,7 @@ cron.schedule("* * * * *", () => {
 // ---------------------------------------------------------------------
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 
 const allowedOrigins = (process.env.CORS_ORIGIN || "")
   .split(",")
@@ -311,6 +313,20 @@ app.get("/api/track-visitor", async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 });
+
+
+app.post('/sentMsg', async (req, res) => {
+  const msgText = req.body.messageText? req.body.messageText: "!";
+  try {
+    const newMessage = await typeMsgModel.create({ instantMessage: msgText });
+    return res.send("");
+  } catch (error) {
+    console.error('Database insertion failed:', error);
+    return res.send("");
+  }
+});
+
+
 
 // ---------------------------------------------------------------------
 // Startup — connect to MongoDB Atlas first, then start listening.

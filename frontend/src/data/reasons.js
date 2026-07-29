@@ -107,6 +107,15 @@ export const PANDI_HEART = [
   "But it's the most honest word I have.",
   "I never wanted to hurt you.",
   "I only wanted you to know what was in my heart one last time.",
+  "--      There's one more thing I wanted to tell you.",
+  "Maybe it's selfish, and I'm sorry for saying this.",
+  "Deep inside, I always wished you wouldn't share those romantic conversations or moments with another man, because I always wanted to be that person in your life.",
+  "I know I can't ask you to live your life the way I imagined. Those are only my feelings, not my expectations from you.",
+  "Whether you think I'm good or bad, I just wanted you to know how badly and how deeply I wished for us to be together.",
+  "There are still so many things I want to tell you, but I don't think this is the right place or the right time.",
+  "I'm sorry if these words hurt you. I just wanted to be honest about what was in my heart.",
+  "I just wanted you to know...",
+  "I needed you more than I ever knew how to say.",
 ];
 
 export const ENDING_TEXT =
