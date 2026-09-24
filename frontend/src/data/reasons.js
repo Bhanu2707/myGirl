@@ -13,8 +13,8 @@ export const STORY_INTRO = {
 };
 
 export const FINAL_NOTE_INTRO = [
-  "Don't open what comes next just out of curiosity.",
-  "If you're reading this, I think you already know what I mean.",
+  // "Don't open what comes next just out of curiosity.",
+  // "If you're reading this, I think you already know what I mean.",
   "This is only for you. If it isn't you... then there's no one else it's for.",
 ];
 
